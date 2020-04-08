@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+	<!--Title for the html tab--> 
 <title>Poaching & Conservation</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
@@ -13,7 +14,7 @@
 
 </head>
 <body>
-
+<!-- Determining the styling for the legend and the textboxes--> 
 <style>
 
     .map {
@@ -143,14 +144,17 @@ margin-right: 5px;
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
     type="text/css"
 />
+	<!--creating a container for the two maps to be displayed--> 
 <div id="comparison-container">
     <div id="before" class="map"></div>
     <div id="after" class="map"></div>
 </div>
+	<!--Adding the mapbox style-->
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoidmlja3lqMjAiLCJhIjoiY2s2cmU2a2Z6MDU3OTNkbGExcTBhanlsNCJ9.AnDT5Fbe1lZxtUukEMhabA';
     var beforeMap = new mapboxgl.Map({
         container: 'before',
+	    //inserting the style link of the first map
         style: 'mapbox://styles/vickyj20/ck8i7u2vt0hhy1ipfthw3aeri',
         center: [48.0085, 8.7832],
         zoom: 2
@@ -158,6 +162,7 @@ margin-right: 5px;
 
     var afterMap = new mapboxgl.Map({
         container: 'after',
+	    //inserting the style link for the second map
         style: 'mapbox://styles/vickyj20/ck8i8x4lm0ip11invdezbr5q1',
         center: [48.0085, 8.7832],
         zoom: 2
@@ -172,7 +177,7 @@ margin-right: 5px;
     });
 </script>
 <div id="map"></div>
-
+<!--the legend and textboxes are put here because then it will appear after the maps are initialized; appear on top of the maps instead of below the maps-->
 <div class="map-overlay top">
 	<div class="map-overlay-inner" id="features2">
 		<h1>
@@ -195,12 +200,12 @@ margin-right: 5px;
 		<p>-Increasing Capacity Buildings</p>
 </div>
 
-
+<!--determining what will go into the legend--> 
 	<script>
 	var layers = ['<strong>Total Number of Rhinos Seized/Poached in 2010-2015</strong>', '1-5','6-11', '25-35', '75-120','', '<strong>Countries Involved in Conservation</strong>'];
 	var colors = ['', '#fdc9c9', '#f73b3b', '#dd0808', '#860909','', '#774a82'];
 
-
+//a loop which will produce the legend items into the actual textbox
 					for (i = 0; i < layers.length; i++) {
 						var layer = layers[i];
 						var color = colors[i];
