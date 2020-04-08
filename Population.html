@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <!--Setting th Title for th html tab--> 
     <title>Southern White Rhinos</title>
     <meta
       name="viewport"
@@ -12,7 +13,7 @@
       href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css"
       rel="stylesheet"
     />
-
+<!--Determining the style for the legend, textboxes, and the features-->
     <style>
       body {
         margin: 0;
@@ -79,7 +80,7 @@
 
 
     </style>
-
+<!--Creating the div that will be holding the map and another div to hold the title and the slide bar--> 
     <div id="map"></div>
 
     <div class="map-overlay top">
@@ -119,17 +120,17 @@
         <div id="legend" class="legend">
         </div>
       </div>
-
+<!--Inputting the mapbox style into the code--> 
     <script>
       mapboxgl.accessToken = 'pk.eyJ1Ijoidmlja3lqMjAiLCJhIjoiY2s2cmU2a2Z6MDU3OTNkbGExcTBhanlsNCJ9.AnDT5Fbe1lZxtUukEMhabA';
-
+//setting the center of the map with the style link
       var map = new mapboxgl.Map({
         container: 'map', // container element id
         style: 'mapbox://styles/vickyj20/ck8f7jpsm0uo41is3701cjy1m',
         center: [20.0085, 5.7832], // initial map center in [lon, lat]
         zoom: 2.2
       });
-
+//adding all the layers in order for the slide to call it later
       map.on('load', function() {
               map.addSource('1895', {
                   type: 'vector',
@@ -207,7 +208,7 @@
       		url: 'vickyj20.cbkirtrm'
       	});
 
-
+//determining the legend features and creating a loop so that the legend will know what to display
         var layers = ['<h3>Population</h3>', '0','1-20', '21-40', '41-60', '61-80', '81-100', '101-140', '141-200','201-250','251-300','301-360','361-400','400-600','600-1000','1001-3000','3001-5000','5001-10000','10001+'];
         var colors = ['', '#b5b5b5', '#FFE8DD', '#FFD9C6', '#FFCDB5', '#FFB997', '#FFB184', '#FFA073','#FF8F64','#FF7E50','#FF7332','#FF641E','#FF5B0D','#F24F00','#D54500','#BB3D00','#842B00','#571B00','#351100'];
 
@@ -229,7 +230,7 @@
 
       document.getElementById('slider').addEventListener('input', function(e) {
         var pop_year = (e.target.value);
-
+//creating a call function for the slider by having a loop function; if the layer exists, when the slider is in use, it will be show that layer
         var yearID = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14'];
         // if those layers exist, the slider will operate and call the mapbox layer to appear
         for (var i = 0; i < yearID.length; i++) {
@@ -240,7 +241,7 @@
                     map.setLayoutProperty(yearID[i], 'visibility', 'none');
                 }
         }
- // update text in the UI
+ // update text in the UI; the function in which actually connects the loop function to the slider
  var year = parseInt(e.target.value, 10)
  document.getElementById('pop_year').innerText = year;
 });
