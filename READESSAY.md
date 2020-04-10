@@ -34,7 +34,7 @@
   
 <h5> See the countries involved in the poaching of Southern White rhinos and the countries who have rhino conservation legislation </h5>
 <iframe src="https://vickyj20.github.io/Southern-White-Rhinos/Final/Poaching-Conservation.html" height="600" width="1000" ></iframe>
-<img src="maplegend.PNG" alt="Missing legend" style="width:160px;height:200px;">
+<img src="maplegend.png" alt="lost legend" style="width:160px;height:200px;">
 
 <div style="background-image: url('rhinoskin.jpg');">
 <h2> Influence on Social and Physical Landscapes </h2>
